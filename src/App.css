@@ -43,14 +43,15 @@ body {
   padding: 0 20px;
 }
 
-/* HEADER PRINCIPAL */
+/* ===== HEADER PRINCIPAL ATUALIZADO ===== */
 .main-header {
-  background: var(--verde-principal);
+  background: var(--off-white); /* Mudei para off-white */
   padding: 0;
-  box-shadow: 0 4px 12px rgba(47, 79, 79, 0.2);
+  box-shadow: 0 4px 12px rgba(47, 79, 79, 0.1); /* Sombra mais suave */
   position: sticky;
   top: 0;
   z-index: 1000;
+  border-bottom: 1px solid var(--borda-suave); /* Adicionei uma borda sutil */
 }
 
 .header-container {
@@ -60,6 +61,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 80px; /* Altura fixa para o header */
 }
 
 .logo-section {
@@ -70,63 +72,47 @@ body {
 .logo {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 15px 0;
+  padding: 5px 0;
 }
 
-.logo-icon {
-  font-size: 2.2rem;
-  background: var(--dourado-nobre);
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 8px rgba(184, 134, 11, 0.3);
+/* ===== LOGO MAIOR E BEM POSICIONADA ===== */
+.logo-image {
+  height: 50px; /* Tamanho maior */
+  width: auto; /* Mantém proporção */
+  object-fit: contain;
+  transition: all 0.3s ease;
 }
 
-.logo-text {
-  display: flex;
-  flex-direction: column;
+.logo:hover .logo-image {
+  transform: scale(1.05);
+  filter: brightness(1.1);
 }
 
-.logo-title {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: white;
-  letter-spacing: 0.5px;
-}
-
-.logo-subtitle {
-  font-size: 0.8rem;
-  color: var(--dourado-nobre);
-  font-weight: 500;
-  letter-spacing: 1px;
-}
-
-/* MENU PRINCIPAL */
+/* ===== MENU PRINCIPAL ===== */
 .main-nav {
   display: flex;
-  gap: 5px;
+  gap: 10px;
 }
 
 .nav-item {
   background: transparent;
   border: none;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--verde-principal); /* Texto na cor verde */
   padding: 12px 20px;
   border-radius: 8px;
   cursor: pointer;
   font-weight: 500;
   transition: all 0.3s ease;
   font-size: 0.95rem;
+  white-space: nowrap;
+  border: 1px solid transparent; /* Adicionei borda transparente */
 }
 
 .nav-item:hover {
-  background: rgba(184, 134, 11, 0.1);
-  color: var(--dourado-nobre);
+  background: var(--verde-principal); /* Fundo verde no hover */
+  color: white; /* Texto branco no hover */
   transform: translateY(-2px);
+  border-color: var(--verde-principal); /* Borda verde no hover */
 }
 
 /* HEADER INFORMATIVO */
@@ -963,20 +949,21 @@ body {
 /* RESPONSIVIDADE */
 @media (max-width: 768px) {
   .header-container {
-    flex-direction: column;
-    gap: 15px;
-    padding: 10px 20px;
+    height: 70px;
+    padding: 0 15px;
+  }
+  
+  .logo-image {
+    height: 40px; /* Um pouco menor no mobile */
   }
   
   .main-nav {
-    width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
+    gap: 5px;
   }
   
   .nav-item {
     padding: 10px 15px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
   
   .info-header h1 {
@@ -1054,5 +1041,16 @@ body {
     flex-direction: column;
     text-align: center;
     gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-image {
+    height: 35px;
+  }
+  
+  .nav-item {
+    padding: 8px 12px;
+    font-size: 0.8rem;
   }
 }

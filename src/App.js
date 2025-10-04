@@ -66,8 +66,8 @@ function App() {
     {
       id: 1,
       icon: "⚠️",
-      title: "OS com Item Faltante",
-      shortText: "Registrar o motivo da ausência de itens obrigatórios",
+      title: "Ordem de Serviço com falta de preenchimento",
+      shortText: "Registrar o motivo da ausência de dados obrigatórios",
       fullText: `• Identificar qual item do checklist está faltando\n• Descrever detalhadamente o motivo da ausência\n• Registrar se é uma situação temporária ou permanente\n• Informar qual ação será tomada para regularização\n• Documentar no sistema as justificativas apropriadas`,
       priority: "high"
     },
@@ -76,7 +76,7 @@ function App() {
       icon: "🔍",
       title: "Serviço de Exumação",
       shortText: "Procedimentos específicos para serviços de exumação",
-      fullText: `• Classificar a OS como INTERNA no sistema\n• Selecionar categorias específicas de exumação\n• Registrar detalhes do serviço prestado nas observações\n• Incluir data, horário e local da exumação\n• Anexar autorizações e documentos necessários\n• Verificar requisitos legais específicos`,
+      fullText: `• Classificar a OS como INTERNA no sistema\n• Selecionar categorias específicas de exumação\n• Registrar detalhes do serviço prestado nas observações\n• Incluir data, horário e local da exumação\n• Anexar autorizações e documentos necessários`,
       priority: "high"
     },
     {
@@ -84,7 +84,7 @@ function App() {
       icon: "📎",
       title: "Documentação e Assinaturas",
       shortText: "Verificar documentação completa e assinaturas obrigatórias",
-      fullText: `• Confirmar que todos os documentos estão com assinatura do contratante\n• Verificar legibilidade das assinaturas e carimbos\n• Em caso de documento faltante, solicitar IMEDIATAMENTE ao setor responsável\n• Validar se documentos anexados estão completos\n• Garantir que cópias estejam legíveis e nítidas\n• Registrar no sistema o status de cada documento`,
+      fullText: `• Confirmar que todos os documentos estão com assinatura do contratante\n• Verificar legibilidade das assinaturas\n• Em caso de documento faltante, solicitar IMEDIATAMENTE ao setor responsável\n• Validar se documentos anexados estão corretos e com assinatura\n• Garantir que cópias estejam legíveis e nítidas`,
       priority: "high"
     }
   ];
@@ -155,16 +155,12 @@ function App() {
 
   return (
     <div className="app">
-      {/* Header com Logo e Menu */}
+      {/* Header com Logo e Menu - ATUALIZADO */}
       <header className="main-header">
         <div className="header-container">
           <div className="logo-section">
             <div className="logo">
-              <div className="logo-icon">⚰️</div>
-              <div className="logo-text">
-                <span className="logo-title">Sistema Óbitos</span>
-                <span className="logo-subtitle">Checklist Digital</span>
-              </div>
+              <img src={process.env.PUBLIC_URL + "/logo.png"} alt="Logo" className="logo-image" />
             </div>
           </div>
           
@@ -196,10 +192,10 @@ function App() {
         {/* Header Informativo */}
         <section className="info-header">
           <div className="header-content">
-            <h1>Checklist - Sistema de Óbitos</h1>
+            <h1>Checklist - Sistema Doth</h1>
             <p className="subtitle">
               Verifique e marque cada item conforme for preenchendo as informações no sistema.
-              Clique em qualquer item para marcar como concluído.
+              Siga esse checklist para preencher os dados no sistema.
             </p>
           </div>
         </section>
@@ -343,9 +339,7 @@ function App() {
         <div className="container">
           <p>✅ Checklist interativo - Marque cada item conforme for preenchendo no sistema</p>
           <div className="footer-info">
-            <span>Sistema Óbitos v1.0</span>
-            <span>•</span>
-            <span>Desenvolvido com React</span>
+                    
           </div>
         </div>
       </footer>
