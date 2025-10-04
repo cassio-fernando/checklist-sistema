@@ -35,6 +35,7 @@ body {
 
 .app {
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .container {
@@ -45,13 +46,13 @@ body {
 
 /* ===== HEADER PRINCIPAL ATUALIZADO ===== */
 .main-header {
-  background: var(--off-white); /* Mudei para off-white */
+  background: var(--off-white);
   padding: 0;
-  box-shadow: 0 4px 12px rgba(47, 79, 79, 0.1); /* Sombra mais suave */
+  box-shadow: 0 4px 12px rgba(47, 79, 79, 0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
-  border-bottom: 1px solid var(--borda-suave); /* Adicionei uma borda sutil */
+  border-bottom: 1px solid var(--borda-suave);
 }
 
 .header-container {
@@ -61,7 +62,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 80px; /* Altura fixa para o header */
+  height: 80px;
 }
 
 .logo-section {
@@ -75,10 +76,9 @@ body {
   padding: 5px 0;
 }
 
-/* ===== LOGO MAIOR E BEM POSICIONADA ===== */
 .logo-image {
-  height: 50px; /* Tamanho maior */
-  width: auto; /* Mantém proporção */
+  height: 50px;
+  width: auto;
   object-fit: contain;
   transition: all 0.3s ease;
 }
@@ -97,7 +97,7 @@ body {
 .nav-item {
   background: transparent;
   border: none;
-  color: var(--verde-principal); /* Texto na cor verde */
+  color: var(--verde-principal);
   padding: 12px 20px;
   border-radius: 8px;
   cursor: pointer;
@@ -105,14 +105,14 @@ body {
   transition: all 0.3s ease;
   font-size: 0.95rem;
   white-space: nowrap;
-  border: 1px solid transparent; /* Adicionei borda transparente */
+  border: 1px solid transparent;
 }
 
 .nav-item:hover {
-  background: var(--verde-principal); /* Fundo verde no hover */
-  color: white; /* Texto branco no hover */
+  background: var(--verde-principal);
+  color: white;
   transform: translateY(-2px);
-  border-color: var(--verde-principal); /* Borda verde no hover */
+  border-color: var(--verde-principal);
 }
 
 /* HEADER INFORMATIVO */
@@ -151,13 +151,6 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 30px;
-}
-
-@media (max-width: 968px) {
-  .checklist-columns {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
 }
 
 .checklist-column {
@@ -946,47 +939,119 @@ body {
   }
 }
 
-/* RESPONSIVIDADE */
+/* ===== RESPONSIVIDADE MOBILE CORRIGIDA ===== */
 @media (max-width: 768px) {
+  /* Header e Navegação - CORRIGIDO */
   .header-container {
-    height: 70px;
-    padding: 0 15px;
+    flex-direction: column;
+    height: auto;
+    padding: 12px 15px;
+    gap: 12px;
+  }
+  
+  .logo {
+    justify-content: center;
+    width: 100%;
+    padding: 0;
   }
   
   .logo-image {
-    height: 40px; /* Um pouco menor no mobile */
+    height: 35px;
   }
   
   .main-nav {
-    gap: 5px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    padding: 0;
   }
   
   .nav-item {
-    padding: 10px 15px;
-    font-size: 0.85rem;
+    padding: 12px 5px;
+    font-size: 0.75rem;
+    text-align: center;
+    border: 1px solid var(--borda-suave);
+    background: var(--off-white);
+    color: var(--verde-principal);
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+  }
+  
+  .nav-item:hover {
+    background: var(--verde-principal);
+    color: white;
+    transform: none;
+  }
+  
+  /* Conteúdo Principal */
+  .info-header {
+    padding: 40px 0;
   }
   
   .info-header h1 {
-    font-size: 2rem;
+    font-size: 1.6rem;
+    padding: 0 20px;
+    line-height: 1.3;
   }
   
   .subtitle {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
+    padding: 0 20px;
+    line-height: 1.4;
   }
   
-  .observations-grid,
-  .documents-grid {
+  /* Checklist */
+  .checklist-section {
+    padding: 40px 0;
+  }
+  
+  .checklist-columns {
     grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 0 15px;
   }
   
   .checklist-column {
     padding: 25px 20px;
+    margin: 0;
+  }
+  
+  .checklist-item {
+    padding: 15px;
+    margin: 0 5px;
+  }
+  
+  .checklist-item:hover {
+    transform: translateX(4px);
+  }
+  
+  /* Observações */
+  .observations-section {
+    padding: 40px 0;
+  }
+  
+  .observations-grid {
+    padding: 0 15px;
+    gap: 15px;
+  }
+  
+  .observation-card {
+    padding: 20px;
+    margin: 0;
   }
   
   .obs-header {
     flex-direction: column;
     text-align: center;
-    gap: 15px;
+    gap: 12px;
+  }
+  
+  .obs-title-content h3 {
+    font-size: 1.2rem;
   }
   
   .obs-indicator {
@@ -995,10 +1060,20 @@ body {
     gap: 15px;
   }
   
-  .obs-actions {
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
+  /* Documentos */
+  .documents-section {
+    padding: 40px 0;
+  }
+  
+  .documents-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 15px;
+  }
+  
+  .document-card {
+    padding: 20px;
+    margin: 0;
   }
   
   .doc-card-header {
@@ -1011,46 +1086,70 @@ body {
     justify-content: center;
   }
   
-  .documents-notice {
-    flex-direction: column;
-    text-align: center;
-    gap: 12px;
+  /* Modal */
+  .document-modal {
+    padding: 10px;
   }
   
-  .detail-item {
-    flex-direction: column;
-    gap: 4px;
+  .modal-content {
+    margin: 20px 10px;
   }
   
-  .detail-value {
-    text-align: left;
+  /* Footer */
+  .app-footer {
+    padding: 25px 0;
   }
   
-  .footer-info {
-    flex-direction: column;
-    gap: 5px;
+  .app-footer p {
+    font-size: 0.9rem;
+    padding: 0 15px;
   }
   
-  .modal-header {
-    flex-direction: column;
-    gap: 12px;
-    text-align: center;
+  /* Garantir que nada ultrapasse a tela */
+  .app {
+    overflow-x: hidden;
   }
   
-  .preview-header {
-    flex-direction: column;
-    text-align: center;
-    gap: 12px;
+  .main-content {
+    overflow-x: hidden;
+  }
+  
+  .checklist-columns,
+  .observations-grid,
+  .documents-grid {
+    max-width: 100%;
+    overflow-x: hidden;
   }
 }
 
 @media (max-width: 480px) {
-  .logo-image {
-    height: 35px;
+  .nav-item {
+    font-size: 0.7rem;
+    padding: 10px 3px;
   }
   
-  .nav-item {
-    padding: 8px 12px;
-    font-size: 0.8rem;
+  .info-header h1 {
+    font-size: 1.4rem;
+  }
+  
+  .checklist-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+  
+  .item-number {
+    align-self: center;
+  }
+  
+  .container {
+    padding: 0 10px;
+  }
+  
+  .checklist-column,
+  .observation-card,
+  .document-card {
+    margin: 0 5px;
+    padding: 20px 15px;
   }
 }
