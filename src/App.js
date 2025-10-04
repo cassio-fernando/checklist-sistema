@@ -194,8 +194,8 @@ function App() {
           <div className="header-content">
             <h1>Checklist - Sistema Doth</h1>
             <p className="subtitle">
-              Verifique e marque cada item conforme for preenchendo as informações no sistema.
-              Siga esse checklist para preencher os dados no sistema.
+             Use esse checklist interativo para garantir que todos os dados e documentos necessários sejam preenchidos corretamente no sistema Doth.
+              
             </p>
           </div>
         </section>
